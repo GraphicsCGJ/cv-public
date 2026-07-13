@@ -1,0 +1,68 @@
+\begin{rubric}{Employment History}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\entry*[2025.06 -- Present]%
+	\textbf{MangoBoost} \enspace\emph{Software Engineering Group, DevOps \& Backend Engineer}\par
+	\textit{\small Tech Stack: Go, Python (Django, Airflow), React, Prometheus, Grafana, Parquet/DuckDB, Canonical MAAS, Cloud-init, Sentry, Git}\par
+
+	\quad $\cdot$ \textbf{HW/SW Integration Test Automation \& Data Pipelines}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Developed integration-test automation pipelines and a web UI to control variable workloads (iperf, perftest, fio, etc.).\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Automated the full flow from build-artifact detection to deployment (CD) and nightly regression testing for new hardware/software (Git workflow, JFrog, Airflow).\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Built a parsing pipeline that accumulates large-scale test results in columnar (Parquet) storage for version-to-version performance comparison, with Grafana/Slack reporting.\par
+
+	\quad $\cdot$ \textbf{Bare-metal Resource Management \& Infrastructure Visibility}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Managed node resource ownership as RDBMS rows with row-level locking, preventing contention across concurrent tests.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Automated bare-metal OS provisioning for dozens of servers with Canonical MAAS (PXE boot) and Cloud-init, ensuring configuration consistency.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Built a hardware-monitoring collection environment for network switches and bare-metal nodes (BMC) using SNMP and Redfish.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Developed a dedicated Prometheus Exporter in Go to collect metrics from the company's in-house NIC.\par
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\entry*[2020.02 -- 2025.06]%
+	\textbf{Tmax Tibero} \enspace\emph{Software Engineer}\par
+
+	%%% Team 1
+	\quad \textbf{Data Synchronization Engine Team} \textit{\small(2020.02 -- 2022.12, 2023.07 -- 2025.06)}\par
+	\textit{\small Tech Stack: C, Java, POSIX System Calls, Spring MVC, Netty, RDBMS}\par
+	\quad $\cdot$ \textbf{Engine Framework \& Optimization}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Maintained and improved the C-based sync engine core (custom memory allocator, epoll I/O multiplexing) and introduced a non-blocking socket layer.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Fixed leaked epoll registrations on abnormal disconnects (e.g., cable pull) via TCP-timeout-based cleanup, improving long-running stability.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Optimized file I/O and large-transaction throughput by introducing batch updates for transaction data.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Implemented an architecture that applies serial transactions from WAL files to the target DB in parallel via multithreading.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Designed and validated scenario-based failover for the sync engine on top of the existing cluster HA (TBCM), and drove it through customer acceptance to production.\par
+
+	\quad $\cdot$ \textbf{Backend \& System Development}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Developed TCP / custom-protocol communication built on Spring and Netty.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Developed cross-DB consistency checking and an ETL service for initial bulk-data loading.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Built a real-time status monitoring system for the synchronization engine.\par
+
+	\quad $\cdot$ \textbf{Team Lead} \textit{\small(2023.07 -- 2025.06)}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Served as Team Leader of the Data Synchronization Engine Team.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Established development roadmaps, managed tasks, and mentored team members.\par
+
+	%%% Team 2
+	\quad \textbf{GIS Engine Team} \textit{\small(2023.01 -- 2023.06)}\par
+	\textit{\small Tech Stack: C/C++}\par
+	\quad $\cdot$ \textbf{GIS Library for RDBMS (Tibero)}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Developed a WKB data-processing framework based on C++ STL and a custom memory allocator.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Developed spatial functions compatible with Oracle Spatial and PostGIS.\par
+
+\end{rubric}
