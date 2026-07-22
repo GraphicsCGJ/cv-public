@@ -1,0 +1,26 @@
+# MkDocs build output
+site/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / OS
+.vscode/
+.obsidian/
+.DS_Store
+
+# LaTeX build artifacts
+latex/*.aux
+latex/*.log
+latex/*.out
+latex/*.bbl
+latex/*.bcf
+latex/*.blg
+latex/*.run.xml
+latex/*.fdb_latexmk
+latex/*.fls
+latex/*.synctex.gz
+latex/*.pdf

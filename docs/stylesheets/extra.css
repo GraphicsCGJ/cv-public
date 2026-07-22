@@ -1,0 +1,26 @@
+/* CV brand colours, matching the LaTeX (CurVe) template */
+/* SwishLineColour #88AC0B (olive-lime), MarkerColour #B6073F (crimson) */
+
+:root {
+  --md-primary-fg-color:        #6f8a09;   /* darkened olive for header contrast */
+  --md-primary-fg-color--light: #88ac0b;
+  --md-primary-fg-color--dark:  #55690a;
+  --md-accent-fg-color:         #b6073f;   /* crimson links / hovers */
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #88ac0b;
+  --md-accent-fg-color:         #e21a5c;
+}
+
+/* subtle crimson underline accent under H1, echoing the CV's swish line */
+.md-typeset h1 {
+  border-bottom: 3px solid var(--md-accent-fg-color);
+  padding-bottom: .2rem;
+}
+
+/* tighter, CV-like lead paragraph */
+.md-typeset .lead {
+  font-size: 1.05rem;
+  color: var(--md-default-fg-color--light);
+}

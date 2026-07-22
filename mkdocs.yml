@@ -1,0 +1,64 @@
+site_name: Gyujin Choi — CV
+site_url: https://graphicscgj.github.io/gyujin-cv/
+site_description: Curriculum Vitae of Gyujin Choi — Backend & Systems Software Engineer
+site_author: Gyujin Choi
+
+repo_url: https://github.com/GraphicsCGJ/gyujin-cv
+repo_name: GraphicsCGJ/gyujin-cv
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - content.action.view
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Experience: experience.md
+  - Education: education.md
+  - Skills: skills.md
+  - Publications: publications.md
+  - Awards: awards.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/solid/envelope
+      link: mailto:ckjin95@gmail.com
+      name: Email
+    - icon: fontawesome/brands/github
+      link: https://github.com/GraphicsCGJ
+      name: GitHub
