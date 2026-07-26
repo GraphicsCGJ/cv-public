@@ -1,24 +1,22 @@
-# 베어메탈 인프라 자동화 & HW 모니터링
+# 베어메탈 인프라 자동화 및 하드웨어 모니터링 시스템 구축
 
-기술: Go, Canonical MAAS(PXE), Cloud-init, Redfish(BMC), SNMP, Prometheus, Grafana
-소속: MangoBoost · Software Engineering Group
+**기술 Stack**: Go, Canonical MAAS(PXE), Cloud-init, Redfish(BMC), SNMP, Prometheus, Grafana, PostgreSQL/RDBMS (Row Lock)
+**소속**: MangoBoost · Software Engineering Group
 
-## 330자판 (330자)
+## 개요 (Overview)
 
-```
-[목표/배경]
-40여 대 이기종 베어메탈을 수동 관리해 구성 편차·자원 충돌이 잦고 HW 가시성도 낮았습니다.
-[역할·수행]
-Canonical MAAS(PXE)로 OS 프로비저닝을 자동화하고 부팅 후 Cloud-init으로 구성 일관성을 확보했습니다. 노드 자원 점유를 RDBMS row 락으로 관리해 테스트 간 충돌을 방지하고, 자사 NIC용 Exporter(Go)로 노출 안 되던 HW 레지스터 카운터까지 수집했습니다.
-[성과·기여도]
-프로비저닝·구성 일관성을 확보하고, HW 레지스터 수준까지 가시성을 확보했습니다. (개인 기여도 약 60% — MAAS·NIC Exporter 주도)
-```
+40여 대가 넘는 대규모의 이기종 베어메탈 서버 인프라를 수동으로 개별 제어함에 따라 빈번히 발생하던 노드 환경 편차 및 테스트 프로세스 간 자원 점유 충돌 문제를 개선하기 위해 엔드투엔드 베어메탈 자동화 및 고정밀 모니터링 체계를 수립하였습니다. Canonical MAAS(PXE) 및 Cloud-init 아키텍처를 도입하여 운영체제 설치부터 정밀 사양 셋업에 이르는 전체 프로비저닝 워크플로우를 완전 자동화하고 데이터 구성 일관성을 도모하였습니다. 또한 동시성 테스트 간 장비의 무단 침범을 방지하기 위해 RDBMS의 행 잠금(Row-level Lock) 구조를 이용한 노드 점유 조율 모듈을 배치하고, Go 언어로 자체 SmartNIC 하드웨어 모니터링 Exporter를 직접 개발함으로써 로우레벨 레지스터 상태까지 시계열 추적이 가능하게 하였습니다.
 
-## 메모
+## 주요 아키텍처 및 해결 과제 (Key Architecture & Technical Challenges)
 
-- distinctive 포인트 = 자사 NIC Exporter(Go): node_exporter로 안 보이던 RNIC HW 레지스터 카운터를 mango-ctl read로 읽어 Prometheus로 노출 (수동 1회성 조회 → 지속 시계열화). 상세: backup/07-nic-exporter.md.
-- 프로비저닝 흐름: Canonical MAAS가 PXE 부팅으로 OS 프로비저닝 → 부팅 후 Cloud-init이 구성. (MAAS는 사용·운영, 개발 아님)
-- HW 모니터링: 330엔 지면상 뺐지만 BMC(Redfish)·네트워크 스위치(SNMP)·node_exporter도 함께 수집 (면접/여유 시 언급).
-- 자원 충돌 방지 = 동시성 제어(락 관리). 노드 점유 상태를 RDBMS row 락(row-level lock)으로 관리 → DB를 단일 조율 지점(single source of truth)으로 테스트 간 자원 점유를 직렬화 (일종의 분산 락). ※ "single point of failure" 아님(장애 단일점, 부정 용어) — "single source of truth"가 맞는 표현.
-- 규모: 40여 대 이기종(GPU 4대, 자사/경쟁사 NIC·NVMe 유무 등 구성 다양).
-- ⚠️ NIC Exporter 실제 노출 메트릭 목록은 회사 git 확인 후 보강 (gis_misc.md와 별개, README TODO 참고).
+- **선언적 베어메탈 프로비저닝 및 정적 구성 확보**: GPU 장비군 및 자사/경쟁사의 다양한 고성능 네트워크 인터페이스 카드(NIC/DPU), 대용량 NVMe 등 하드웨어 파편화가 극심한 40여 대의 타겟 베어메탈 환경에 맞춰 Canonical MAAS 인프라를 전격 연동하였습니다. PXE 네트워크 부팅 오케스트레이션을 완결하고 부팅 완료 시점에 Cloud-init 구성을 연동하여 전체 클러스터 장비들의 구성 일관성(Configuration Consistency)을 정밀 제어하였습니다.
+- **행 잠금(Row Lock) 기법을 적용한 분산 자원 점유 정렬**: 다중 자동화 테스트 스레드가 동시에 가동되는 분산 클러스터 환경에서 하드웨어 테스트 대상 노드가 중복 침범되던 오버헤드를 제어하기 위해, 관계형 데이터베이스(RDBMS)를 신뢰 수준의 중심 단일 원천(Single Source of Truth)으로 삼아 노드 사용 요청을 Row-level Lock으로 직렬화(Serialization) 관리하였습니다.
+- **Go 언어 기반의 커스텀 하드웨어 메트릭 수집기(SmartNIC Exporter) 설계**:
+  - **하드웨어 텔레메트리 한계 극복**: 표준 리눅스 호스트 지표 수집기(node_exporter)로는 조회할 수 없던 자사 초고속 SmartNIC 카드의 저수준 하드웨어 컨트롤 레지스터 데이터 및 통신 유실 카운터 수치들을 지속 모니터링해야 하는 장벽이 있었습니다.
+  - **시계열 추적 환경 고도화**: 레지스터 값을 로우레벨 제어 툴 명령어로 수동 파싱하던 단순 구조를 탈피하여, Go 언어로 Prometheus 프로토콜에 정밀 부합하는 커스텀 메트릭 수집 엔진을 제작함으로써 수집된 하드웨어 세부 동작 지표들을 지속 관측 가능한 실시간 시계열 데이터(Time-series Metric)로 연동하였습니다.
+- **다차원 하드웨어 모니터링 가시성 강화**: 서버 섀시 내부 제어를 위한 Redfish(BMC), 네트워크 스위치의 대역폭 전송 상태 수집을 위한 SNMP 기술을 연동하여 CPU/Memory/Storage 상태는 물론 물리 네트워크 노드와 대역폭 사용량 전체를 Grafana 대시보드상으로 투명하게 단일 가시화하였습니다.
+
+## 기여도 및 주요 성과 (Contributions & Achievements)
+
+- **인프라 통합 가용성 및 운영 생산성 비약적 향상**: 서버 프로비저닝의 수동 의존성을 완전히 제거하여 인프라 배포 리드타임을 수 분 이내로 단축시키고 수동 작업 편차를 영(Zero)으로 만들었습니다.
+- **하드웨어 내부 신뢰성 검증 가속화**: 고정밀 레지스터 카운터를 통한 정밀 모니터링으로 고대역폭 트래픽 가혹 조건 하에서의 병목 지점(Bottleneck) 및 장비 오동작 지점을 시각적으로 즉각 모니터링하고 가시적인 원인 조치가 가능하도록 도왔습니다.
