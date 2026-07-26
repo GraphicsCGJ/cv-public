@@ -1,10 +1,10 @@
 site_name: Gyujin Choi — CV
-site_url: https://graphicscgj.github.io/gyujin-cv/
+site_url: https://graphicscgj.github.io/cv-public/
 site_description: Curriculum Vitae of Gyujin Choi — Backend & Systems Software Engineer
 site_author: Gyujin Choi
 
-repo_url: https://github.com/GraphicsCGJ/gyujin-cv
-repo_name: GraphicsCGJ/gyujin-cv
+repo_url: https://github.com/GraphicsCGJ/cv-public
+repo_name: GraphicsCGJ/cv-public
 
 theme:
   name: material

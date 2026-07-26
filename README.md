@@ -2,7 +2,7 @@
 
 Source for my online CV, built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and deployed to GitHub Pages via GitHub Actions.
 
-**Live site:** https://graphicscgj.github.io/gyujin-cv/
+**Live site:** https://graphicscgj.github.io/cv-public/
 
 ## Local preview
 
