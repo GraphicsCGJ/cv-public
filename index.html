@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gyujin Choi — Curriculum Vitae</title>
+  <meta name="description" content="Curriculum Vitae of Gyujin Choi — Backend & Systems Software Engineer. Specializing in data-synchronization engines, high-performance distributed backends, and bare-metal infrastructure automation.">
+  <!-- Google Fonts: Inter for Sans, Playfair Display or Lora for Serif-like elegant headers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome for beautiful minimalist icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Marked.js CDN for parsing Project Markdown deep-dives on the fly -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- Theme Toggle Floating Button -->
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <div class="app-container">
+    
+    <!-- LEFT COLUMN: Sticky Profile & Navigation Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <header class="profile-header">
+          <h1 class="profile-name">Gyujin Choi</h1>
+          <p class="profile-title">Backend &amp; Systems Software Engineer</p>
+          <p class="profile-summary">
+            Specializing in high-performance C/C++ data-synchronization engines, concurrent network programming, and bare-metal infrastructure orchestration for AI-datacenter hardware.
+          </p>
+        </header>
+
+        <!-- Sidebar Contact Info -->
+        <div class="contact-info">
+          <a href="mailto:ckjin95@gmail.com" class="contact-link" title="Email">
+            <i class="fa-regular fa-envelope"></i>
+            <span>ckjin95@gmail.com</span>
+          </a>
+          <a href="https://github.com/GraphicsCGJ" target="_blank" rel="noopener noreferrer" class="contact-link" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+            <span>github.com/GraphicsCGJ</span>
+          </a>
+          <a href="https://github.com/GraphicsCGJ/cv-public" target="_blank" rel="noopener noreferrer" class="contact-link" title="Repository">
+            <i class="fa-solid fa-code-branch"></i>
+            <span>GraphicsCGJ/cv-public</span>
+          </a>
+        </div>
+
+        <!-- Sidebar Scroll Navigation -->
+        <nav class="scroll-nav">
+          <ul class="nav-list">
+            <li><a href="#about" class="nav-item active"><span class="nav-dot"></span>About</a></li>
+            <li><a href="#experience" class="nav-item"><span class="nav-dot"></span>Experience</a></li>
+            <li><a href="#publications" class="nav-item"><span class="nav-dot"></span>Publications</a></li>
+            <li><a href="#education" class="nav-item"><span class="nav-dot"></span>Education</a></li>
+            <li><a href="#skills" class="nav-item"><span class="nav-dot"></span>Skills</a></li>
+            <li><a href="#awards" class="nav-item"><span class="nav-dot"></span>Awards</a></li>
+            <li><a href="#projects" class="nav-item"><span class="nav-dot"></span>Project Deep-Dives</a></li>
+          </ul>
+        </nav>
+
+        <footer class="sidebar-footer">
+          <p>&copy; 2026 Gyujin Choi. Built with HTML &amp; CSS.</p>
+        </footer>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN: Scrollable Main Content Pane -->
+    <main class="main-content">
+      
+      <!-- Section: About -->
+      <section id="about" class="content-section">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-body card prose">
+          <p>
+            I am a senior backend and systems software engineer with over 5 years of experience developing and operating critical enterprise systems. My expertise spans low-level C programming, concurrent network programming (POSIX, epoll, multithreading), performance-critical database synchronization engines (Change Data Capture/CDC), and large-scale hardware/software integration and automation.
+          </p>
+          <p>
+            I have a proven track record of taking complex software products from **conceptual architecture, through rigorous validation, to successful production deployment** at major enterprise and public-sector clients (including POSCO and KT). I also possess leadership experience as a Team Leader, establishing roadmaps and mentoring engineers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section: Experience -->
+      <section id="experience" class="content-section">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <!-- Experience Item: MangoBoost -->
+        <div class="timeline-item card">
+          <div class="timeline-header">
+            <div class="header-main">
+              <h3 class="company-name"><a href="https://www.mangoboost.io/" target="_blank" rel="noopener noreferrer">MangoBoost</a></h3>
+              <span class="role-title">DevOps &amp; Backend Engineer</span>
+            </div>
+            <span class="timeline-date">2025.06 &ndash; Present</span>
+          </div>
+          <div class="timeline-subheader">
+            <span class="team-info">Software Engineering Group, DevOps &amp; Backend Infrastructure Team</span>
+          </div>
+          
+          <p class="company-desc">
+            MangoBoost is an AI-datacenter hardware acceleration startup specializing in Data Processing Units (DPU) and SmartNIC systems (<a href="https://techcrunch.com/2023/10/23/ai-based-data-center-optimization-startup-mangoboost-raises-55m-series-a/" target="_blank" rel="noopener noreferrer">TechCrunch $55M Series A</a>).
+          </p>
+          
+          <div class="tech-stack-container">
+            <span class="tech-stack-label">Tech Stack:</span>
+            <div class="tech-tags">
+              <span>Go</span><span>Python</span><span>Django</span><span>Airflow</span><span>React</span><span>Prometheus</span><span>Grafana</span><span>Parquet</span><span>DuckDB</span><span>MAAS</span><span>Cloud-init</span><span>Sentry</span>
+            </div>
+          </div>
+
+          <div class="timeline-details">
+            <div class="detail-block">
+              <h4 class="block-title"><i class="fa-solid fa-microchip"></i> HW/SW Integration Test Automation &amp; Data Pipelines</h4>
+              <ul>
+                <li>Developed integration-test automation pipelines and a unified web UI to drive and control variable workloads (iperf, perftest, fio, etc.) across bare-metal environments.</li>
+                <li>Automated the full deployment and validation flow (CD) from build-artifact detection to nightly regression testing for new hardware and software integrations using Git workflow, JFrog Artifactory, and Apache Airflow.</li>
+                <li>Built a telemetry parsing pipeline that aggregates large-scale performance testing results into columnar storage (Parquet/DuckDB) for version-to-version regression analysis, with automated Grafana and Slack reporting.</li>
+              </ul>
+            </div>
+            
+            <div class="detail-block">
+              <h4 class="block-title"><i class="fa-solid fa-server"></i> Bare-Metal Resource Management &amp; Observability</h4>
+              <ul>
+                <li>Designed and implemented a node resource ownership management system mapping hardware nodes as database rows with row-level locking to prevent resource contention across concurrent tests.</li>
+                <li>Automated bare-metal OS provisioning for dozens of heterogeneous servers using Canonical MAAS (PXE boot) and Cloud-init, ensuring configuration consistency and minimizing manual overhead.</li>
+                <li>Built a hardware-monitoring collection environment for network switches and bare-metal nodes (BMC) using SNMP and Redfish API protocols.</li>
+                <li>Developed a high-performance custom Prometheus Exporter in Go to collect hardware register counters directly from the company's proprietary RNIC.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item: Tmax Tibero -->
+        <div class="timeline-item card">
+          <div class="timeline-header">
+            <div class="header-main">
+              <h3 class="company-name">Tmax Tibero</h3>
+              <span class="role-title">Software Engineer &amp; Team Lead</span>
+            </div>
+            <span class="timeline-date">2020.02 &ndash; 2025.06</span>
+          </div>
+          
+          <!-- Sub-Experience: Data Sync -->
+          <div class="sub-timeline">
+            <div class="sub-timeline-header">
+              <h4 class="sub-company">Data Synchronization Engine Team</h4>
+              <span class="sub-date">2020.02 &ndash; 2022.12, 2023.07 &ndash; 2025.06</span>
+            </div>
+            
+            <p class="company-desc">
+              Developed <strong><a href="https://www.tmax.co.kr/prosync" target="_blank" rel="noopener noreferrer">Tibero ProSync</a></strong>, Tmax's enterprise real-time Change-Data-Capture (CDC) data synchronization solution, deployed across massive financial, public, and manufacturing clients including **POSCO** (<a href="https://www.itbiznews.com/news/articleView.html?idxno=185408" target="_blank" rel="noopener noreferrer">Tmax × POSCO Seminar Case</a>) and **KT** (<a href="https://www.hellot.net/news/article.html?no=106697" target="_blank" rel="noopener noreferrer">HelloT Article</a>).
+            </p>
+
+            <div class="tech-stack-container">
+              <span class="tech-stack-label">Tech Stack:</span>
+              <div class="tech-tags">
+                <span>C</span><span>Java</span><span>POSIX System Calls</span><span>Spring MVC</span><span>Netty</span><span>RDBMS (Oracle, Tibero)</span>
+              </div>
+            </div>
+
+            <div class="timeline-details">
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-gears"></i> Engine Framework &amp; Optimization</h5>
+                <ul>
+                  <li>Maintained and optimized the C-based synchronization engine core, including custom memory allocators and POSIX epoll I/O multiplexing, and introduced an asynchronous non-blocking socket layer.</li>
+                  <li>Resolved persistent file descriptor leaks by developing a TCP-timeout-based cleanup mechanism that cleans up abandoned epoll registrations during unexpected network disconnections (e.g., cable pull).</li>
+                  <li>Optimized local file I/O operations and transaction processing throughput by implementing batch updates for synchronization metadata.</li>
+                  <li>Designed and built a high-performance multithreaded architecture that applies serial database transactions from WAL files to the target database in parallel, significantly increasing replication speed.</li>
+                  <li>Architected, verified, and successfully deployed a scenario-based failover framework for the sync engine on top of the cluster High-Availability (TBCM) architecture, passing client production acceptance tests.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-network-wired"></i> Backend &amp; System Integration</h5>
+                <ul>
+                  <li>Developed highly concurrent custom TCP communication servers built on Java, Spring, and Netty.</li>
+                  <li>Implemented cross-database consistency checking and an ETL pipeline module for initial high-speed bulk data loading.</li>
+                  <li>Built a real-time cluster status and latency monitoring subsystem for the synchronization engine deployment.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-users"></i> Team Leadership &amp; Management</h5>
+                <ul>
+                  <li>Appointed as Team Leader of the Data Synchronization Engine Team.</li>
+                  <li>Managed development roadmaps, prioritized sprint backlogs, scheduled product releases, and mentored junior engineers on system C programming and database internals.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-Experience: GIS -->
+          <div class="sub-timeline">
+            <div class="sub-timeline-header">
+              <h4 class="sub-company">GIS Engine Team</h4>
+              <span class="sub-date">2023.01 &ndash; 2023.06</span>
+            </div>
+
+            <p class="company-desc">
+              Developed Oracle-compatible spatial data features and libraries inside the Tibero RDBMS engine core.
+            </p>
+
+            <div class="tech-stack-container">
+              <span class="tech-stack-label">Tech Stack:</span>
+              <div class="tech-tags">
+                <span>C++</span><span>C</span><span>WKB (Well-Known Binary)</span><span>Custom Memory Allocator</span>
+              </div>
+            </div>
+
+            <div class="timeline-details">
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-map-location-dot"></i> GIS Library for RDBMS (Tibero)</h5>
+                <ul>
+                  <li>Designed and developed a highly optimized Well-Known Binary (WKB) spatial data processing framework using C++ STL and custom memory allocators to prevent memory fragmentation.</li>
+                  <li>Implemented geometric computation algorithms and Oracle-Spatial/PostGIS-compatible ST_ spatial SQL functions.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Publications -->
+      <section id="publications" class="content-section">
+        <h2 class="section-title">Publications</h2>
+        
+        <!-- Publication 1: Journal -->
+        <div class="publication-item card">
+          <span class="pub-type journal">Journal Article</span>
+          <h3 class="pub-title">
+            <a href="https://doi.org/10.1007/s10055-021-00542-1" target="_blank" rel="noopener noreferrer">
+              Accurate and Stable Alignment of Virtual and Real Spaces Using Consumer-Grade Trackers
+            </a>
+          </h3>
+          <p class="pub-authors">J. An, <strong>G. Choi</strong>, W. Chun, Y. Joo, S. Park, I. Ihm.</p>
+          <p class="pub-journal">
+            <em>Virtual Reality</em> (Springer), vol. 26, no. 1, pp. 125&ndash;141, March 2022.
+          </p>
+          <div class="pub-abstract">
+            <p><strong>Abstract:</strong> Sharing a physical space across VR/AR/MR environments requires aligning the coordinate systems of the physical and virtual worlds accurately and stably without expensive professional hardware. Using a custom calibration board and consumer-grade position trackers, this work establishes a robust physical reference frame and estimates its exact geometric relationship to virtual space, ensuring high spatial accuracy and stability for multi-user collaborative XR environments.</p>
+          </div>
+        </div>
+
+        <!-- Publication 2: Conference -->
+        <div class="publication-item card">
+          <span class="pub-type conference">Conference Proceeding</span>
+          <h3 class="pub-title">
+            <a href="https://ieeexplore.ieee.org/document/8798228" target="_blank" rel="noopener noreferrer">
+              On Sharing Physical Geometric Space between Augmented and Virtual Reality Environments
+            </a>
+          </h3>
+          <p class="pub-authors">W. Chun, <strong>G. Choi</strong>, J. An, W. Seo, S. Park, I. Ihm.</p>
+          <p class="pub-journal">
+            <em>2019 IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)</em>, pp. 884&ndash;885, Osaka, Japan, March 2019. <em>(Poster)</em>
+          </p>
+          <div class="pub-abstract">
+            <p><strong>Abstract:</strong> AR and VR systems operate in isolated, independent coordinate systems, presenting challenges for multi-user collaboration in shared environments. This work proposes a methodology to estimate the geometric transform matrix between AR and VR world coordinates using a specialized tracking board, enabling real-time spatial collaboration within a single, unified physical room.</p>
+          </div>
+        </div>
+
+        <!-- Publication 3: Thesis -->
+        <div class="publication-item card">
+          <span class="pub-type thesis">M.S. Thesis</span>
+          <h3 class="pub-title">
+            An Effective Estimation of Coordinate System in Real Space Using Hybrid Marker Image
+          </h3>
+          <p class="pub-authors"><strong>Gyujin Choi</strong></p>
+          <p class="pub-journal">
+            <em>M.S. thesis, Sogang University</em>, 2019 (Advisor: Prof. Insung Ihm).
+          </p>
+          <div class="pub-abstract">
+            <p><strong>Abstract:</strong> Traditional single-marker AR alignment suffers from tracking degradation when the user moves out of direct line of sight. This work proposes a multi-marker hybrid tracking framework utilizing local cameras and a hierarchy of recognition states to continuously estimate a shared coordinate system. Tracking output is stabilized using Nearest-Neighbor/Gaussian interpolation and quaternion orientation averaging, and validated on Microsoft HoloLens and Samsung Galaxy devices, providing superior mobility and alignment stability.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Education -->
+      <section id="education" class="content-section">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="education-item card">
+          <div class="edu-header">
+            <div class="edu-main">
+              <h3 class="school-name">Sogang University</h3>
+              <span class="degree-title">M.S. in Computer Science &amp; Engineering</span>
+            </div>
+            <span class="edu-date">2018.02 &ndash; 2020.02</span>
+          </div>
+          <p class="edu-advisor"><strong>Specialization:</strong> Computer Graphics &amp; Spatial XR Alignment (Advisor: Prof. Insung Ihm)</p>
+        </div>
+
+        <div class="education-item card">
+          <div class="edu-header">
+            <div class="edu-main">
+              <h3 class="school-name">Sogang University</h3>
+              <span class="degree-title">B.S. in Computer Science &amp; Engineering</span>
+            </div>
+            <span class="edu-date">2014.02 &ndash; 2018.02</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Skills -->
+      <section id="skills" class="content-section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          
+          <div class="skill-category card">
+            <h3 class="category-title"><i class="fa-solid fa-code"></i> Languages</h3>
+            <ul class="skill-list">
+              <li>C / C++</li>
+              <li>Go (Golang)</li>
+              <li>Python</li>
+              <li>Java</li>
+              <li>Bash Shell scripting</li>
+            </ul>
+          </div>
+
+          <div class="skill-category card">
+            <h3 class="category-title"><i class="fa-solid fa-terminal"></i> Systems &amp; Low-Level</h3>
+            <ul class="skill-list">
+              <li>POSIX System Programming</li>
+              <li>I/O Multiplexing (epoll)</li>
+              <li>Multithreaded programming</li>
+              <li>Custom Memory Allocators</li>
+              <li>Socket Programming</li>
+            </ul>
+          </div>
+
+          <div class="skill-category card">
+            <h3 class="category-title"><i class="fa-solid fa-database"></i> Databases &amp; Storage</h3>
+            <ul class="skill-list">
+              <li>Oracle Database</li>
+              <li>Tibero (RDBMS Engine)</li>
+              <li>PostgreSQL</li>
+              <li>Parquet (Columnar Storage)</li>
+              <li>DuckDB</li>
+            </ul>
+          </div>
+
+          <div class="skill-category card">
+            <h3 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> DevOps &amp; Infrastructure</h3>
+            <ul class="skill-list">
+              <li>Docker / Containerization</li>
+              <li>Apache Airflow (DAGs)</li>
+              <li>Prometheus &amp; Grafana</li>
+              <li>Canonical MAAS (Bare-metal provisioning)</li>
+              <li>Cloud-init automation</li>
+              <li>SNMP &amp; Redfish APIs</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Awards -->
+      <section id="awards" class="content-section">
+        <h2 class="section-title">Awards</h2>
+        <div class="award-item card">
+          <div class="award-header">
+            <h3 class="award-title"><i class="fa-solid fa-trophy"></i> Super Rookie Award</h3>
+            <span class="award-date">2021</span>
+          </div>
+          <p class="award-org">Tmax Tibero</p>
+          <p class="award-desc">
+            Awarded for the complete finalization and stabilization of the enterprise file-synchronization engine solution.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section: Projects (Deep Dives) -->
+      <section id="projects" class="content-section">
+        <h2 class="section-title">Project Deep-Dives</h2>
+        <p class="section-subtitle">
+          Click on any card to read the comprehensive technical documentation and architecture breakdowns loaded directly from the repository.
+        </p>
+
+        <div class="projects-grid">
+          
+          <!-- Project 1 -->
+          <div class="project-card card" data-project="01-gis-spatial">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Tibero GIS Engine</h3>
+              <span class="project-tag">C++ / WKB / Allocator</span>
+            </div>
+            <p class="project-card-summary">Modularization and development of spatial coordinate processing libraries compatible with PostGIS and Oracle Spatial.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card card" data-project="02-engine-core">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Sync Engine Core</h3>
+              <span class="project-tag">C / POSIX / Epoll</span>
+            </div>
+            <p class="project-card-summary">Maintenance and optimization of the C-based Change Data Capture (CDC) real-time sync engine core and epoll networking layer.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card card" data-project="03-parallel-apply">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Parallel Transaction Applier</h3>
+              <span class="project-tag">C / Multi-threading</span>
+            </div>
+            <p class="project-card-summary">Design and implementation of a multithreaded engine to safely apply WAL transactions to target databases in parallel.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card card" data-project="04-ha-failover">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Scenario HA Failover</h3>
+              <span class="project-tag">HA / TBCM / Cluster</span>
+            </div>
+            <p class="project-card-summary">Designed, validated, and deployed scenario-based recovery structures on top of existing cluster high-availability frameworks.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card card" data-project="05-backend-api">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Netty &amp; Spring Gateway</h3>
+              <span class="project-tag">Java / Netty / Spring</span>
+            </div>
+            <p class="project-card-summary">Developed concurrent communication modules and bulk initial ETL data loading layers for real-time CDC synchronization.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card card" data-project="06-test-platform">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Automated Validation Platform</h3>
+              <span class="project-tag">Airflow / Django / React</span>
+            </div>
+            <p class="project-card-summary">Built a high-availability integration and performance verification system driving airlocked server clusters for DPU RNIC testing.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="project-card card" data-project="07-baremetal">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Bare-Metal Orchestrator</h3>
+              <span class="project-tag">MAAS / SNMP / Redfish</span>
+            </div>
+            <p class="project-card-summary">Automated provisioning and performance telemetry collection via BMC, switches, and custom-built Go exporters.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+          <!-- Project 8 -->
+          <div class="project-card card" data-project="08-team-lead">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Engine Team Leadership</h3>
+              <span class="project-tag">Management / Roadmap</span>
+            </div>
+            <p class="project-card-summary">Led the Tibero ProSync CDC core development group, establishing development targets, managing tasks, and mentoring members.</p>
+            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SLIDE-OUT DRAWER OVERLAY FOR PROJECT DEEP-DIVES -->
+  <div id="drawer-overlay" class="drawer-overlay"></div>
+  <aside id="project-drawer" class="project-drawer">
+    <div class="drawer-header">
+      <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close drawer">
+        <i class="fa-solid fa-xmark"></i> Close
+      </button>
+      <span class="drawer-header-hint">Project Technical Documentation</span>
+    </div>
+    <div id="drawer-content" class="drawer-content prose">
+      <!-- Dynamic Markdown Content will be injected here -->
+      <div class="loading-spinner">
+        <i class="fa-solid fa-circle-notch fa-spin"></i> Loading deep-dive documentation...
+      </div>
+    </div>
+  </aside>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>
