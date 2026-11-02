@@ -2,26 +2,36 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \entry*[2025.06 -- Present]%
-	\textbf{MangoBoost} \enspace\emph{Software Engineering Group, DevOps \& Backend Engineer}\par
-	\textit{\small Tech Stack: Go, Python (Django, Airflow), React, Prometheus, Grafana, Parquet/DuckDB, Canonical MAAS, Cloud-init, Sentry, Git}\par
+	\textbf{MangoBoost} \enspace\emph{DevOps \& Backend Engineer}\par
 
-	\quad $\cdot$ \textbf{HW/SW Integration Test Automation \& Data Pipelines}\par
+	%%% Project 1
+	\quad \textbf{LLM Inference} \textit{\small(2026.10 -- Present)}\par
+	\textit{\small Tech Stack: Python, Kubernetes, Observability}\par
+	\quad $\cdot$ \textbf{Observability Stack}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Built an OpenTelemetry-based pipeline collecting metrics, traces, and logs: exporters and OTel Collector agents run as Kubernetes DaemonSets and feed a Collector gateway and VictoriaMetrics on a dedicated node.\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Configured the gateway to export telemetry both to local storage and to GCP Pub/Sub for downstream data processing.\par
+	\quad $\cdot$ \textbf{Conformance Testing}\par
+	\hangindent=1cm \hangafter=0 %
+	$\cdot$ Own conformance testing, test automation, and result visualization for the LLM inference stack.\par
+
+	%%% Project 2
+	\quad \textbf{Test Automation \& Infrastructure} \textit{\small(2025.06 -- Present)}\par
+	\textit{\small Tech Stack: Python, CI/CD, RDBMS}\par
+	\quad $\cdot$ \textbf{HW/SW Integration Test Automation}\par
 	\hangindent=1cm \hangafter=0 %
 	$\cdot$ Developed integration-test automation pipelines and a web UI to control variable workloads (iperf, perftest, fio, etc.).\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Automated the full flow from build-artifact detection to deployment (CD) and nightly regression testing for new hardware/software (Git workflow, JFrog, Airflow).\par
+	$\cdot$ Automated the full flow from build-artifact detection to deployment (CD) and nightly regression testing for new hardware/software.\par
+	\quad $\cdot$ \textbf{Bare-metal Resource Management}\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Built a parsing pipeline that accumulates large-scale test results in columnar (Parquet) storage for version-to-version performance comparison, with Grafana/Slack reporting.\par
-
-	\quad $\cdot$ \textbf{Bare-metal Resource Management \& Infrastructure Visibility}\par
+	$\cdot$ Built convergent bare-metal infrastructure with PXE-boot OS provisioning and an Ansible-like, Git-managed desired-state configuration tool.\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Managed node resource ownership as RDBMS rows with row-level locking, preventing contention across concurrent tests.\par
+	$\cdot$ Kept test automation current with the latest RHEL- and Debian-family releases (Rocky 9/10, Ubuntu 22.04/24.04), including kernel pinning and DKMS-based device-driver installation.\par
+	\quad $\cdot$ \textbf{Platform Backend}\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Automated bare-metal OS provisioning for dozens of servers with Canonical MAAS (PXE boot) and Cloud-init, ensuring configuration consistency.\par
-	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Built a hardware-monitoring collection environment for network switches and bare-metal nodes (BMC) using SNMP and Redfish.\par
-	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Developed a dedicated Prometheus Exporter in Go to collect metrics from the company's in-house NIC.\par
+	$\cdot$ Built an in-house identity service for the platform (JWT/JWKS, Google and LDAP sign-in, personal access tokens, RBAC).\par
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \entry*[2020.02 -- 2025.06]%
@@ -29,10 +39,10 @@
 
 	%%% Team 1
 	\quad \textbf{Data Synchronization Engine Team} \textit{\small(2020.02 -- 2022.12, 2023.07 -- 2025.06)}\par
-	\textit{\small Tech Stack: C, Java, POSIX System Calls, Spring MVC, Netty, RDBMS}\par
+	\textit{\small Tech Stack: C, Java, RDBMS}\par
 	\quad $\cdot$ \textbf{Engine Framework \& Optimization}\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Maintained and improved the C-based sync engine core (custom memory allocator, epoll I/O multiplexing) and introduced a non-blocking socket layer.\par
+	$\cdot$ Maintained and improved the C-based sync engine core and introduced a non-blocking network layer.\par
 	\hangindent=1cm \hangafter=0 %
 	$\cdot$ Fixed leaked epoll registrations on abnormal disconnects (e.g., cable pull) via TCP-timeout-based cleanup, improving long-running stability.\par
 	\hangindent=1cm \hangafter=0 %
@@ -44,7 +54,7 @@
 
 	\quad $\cdot$ \textbf{Backend \& System Development}\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Developed TCP / custom-protocol communication built on Spring and Netty.\par
+	$\cdot$ Developed TCP / custom-protocol communication servers in Java.\par
 	\hangindent=1cm \hangafter=0 %
 	$\cdot$ Developed cross-DB consistency checking and an ETL service for initial bulk-data loading.\par
 	\hangindent=1cm \hangafter=0 %
@@ -61,7 +71,7 @@
 	\textit{\small Tech Stack: C/C++}\par
 	\quad $\cdot$ \textbf{GIS Library for RDBMS (Tibero)}\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Developed a WKB data-processing framework based on C++ STL and a custom memory allocator.\par
+	$\cdot$ Developed a WKB spatial data-processing library in C++.\par
 	\hangindent=1cm \hangafter=0 %
 	$\cdot$ Developed spatial functions compatible with Oracle Spatial and PostGIS.\par
 

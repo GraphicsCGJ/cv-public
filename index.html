@@ -13,8 +13,6 @@
   <link rel="stylesheet" href="styles.css">
   <!-- FontAwesome for beautiful minimalist icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Marked.js CDN for parsing Project Markdown deep-dives on the fly -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -61,7 +59,6 @@
             <li><a href="#education" class="nav-item"><span class="nav-dot"></span>Education</a></li>
             <li><a href="#skills" class="nav-item"><span class="nav-dot"></span>Skills</a></li>
             <li><a href="#awards" class="nav-item"><span class="nav-dot"></span>Awards</a></li>
-            <li><a href="#projects" class="nav-item"><span class="nav-dot"></span>Project Deep-Dives</a></li>
           </ul>
         </nav>
 
@@ -79,14 +76,14 @@
         <h2 class="section-title">About Me</h2>
         <div class="section-body card prose">
           <p>
-            I am a backend and systems software engineer specializing in high-reliability, performance-critical systems. My core expertise lies in low-level systems programming (C/C++), concurrent network programming, and robust infrastructure automation (Go/Python). I enjoy solving complex architectural bottlenecks and ensuring system integrity from the hardware/OS layer up to the backend service layer.
+            I am a backend and systems software engineer specializing in high-reliability, performance-critical systems. My core expertise lies in low-level systems programming (C/C++), concurrent network programming, and robust infrastructure automation (Python). I enjoy solving complex architectural bottlenecks and ensuring system integrity from the hardware/OS layer up to the backend service layer.
           </p>
           <ul>
             <li>
               <strong>At Tmax Tibero:</strong> Designed and optimized high-performance database Change Data Capture (CDC) synchronization engines, and built multithreaded parallel transaction appliers. Led a team of 7 systems software engineers as a Technical Team Lead.
             </li>
             <li>
-              <strong>At MangoBoost:</strong> Architected scalable bare-metal orchestration and OS provisioning systems, developed high-throughput daily hardware/software regression pipelines, and designed custom Go-based Prometheus exporters for in-house SmartNIC monitoring.
+              <strong>At MangoBoost:</strong> Built convergent bare-metal provisioning infrastructure and nightly hardware/software regression pipelines, and now run an OpenTelemetry-based observability stack on Kubernetes and conformance testing for the LLM inference stack.
             </li>
           </ul>
         </div>
@@ -105,39 +102,79 @@
             </div>
             <span class="timeline-date">2025.06 &ndash; Present</span>
           </div>
-          <div class="timeline-subheader">
-            <span class="team-info">Software Engineering Group, DevOps &amp; Backend Infrastructure Team</span>
-          </div>
-          
           <p class="company-desc">
             MangoBoost is an AI-datacenter hardware acceleration startup specializing in Data Processing Units (DPU) and SmartNIC systems (<a href="https://www.mangoboost.io/media/news" target="_blank" rel="noopener noreferrer">MangoBoost News</a>).
           </p>
-          
-          <div class="tech-stack-container">
-            <span class="tech-stack-label">Tech Stack:</span>
-            <div class="tech-tags">
-              <span>Go</span><span>Python</span><span>Django</span><span>Airflow</span><span>React</span><span>Prometheus</span><span>Grafana</span><span>Parquet</span><span>DuckDB</span><span>MAAS</span><span>Cloud-init</span><span>Sentry</span>
+
+          <!-- Sub-Experience: LLM Inference -->
+          <div class="sub-timeline">
+            <div class="sub-timeline-header">
+              <h4 class="sub-company">LLM Inference</h4>
+              <span class="sub-date">2026.10 &ndash; Present</span>
+            </div>
+
+            <div class="tech-stack-container">
+              <span class="tech-stack-label">Tech Stack:</span>
+              <div class="tech-tags">
+                <span>Python</span><span>Kubernetes</span><span>Observability</span>
+              </div>
+            </div>
+
+            <div class="timeline-details">
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-chart-line"></i> Observability Stack</h5>
+                <ul>
+                  <li>Built an OpenTelemetry-based pipeline collecting metrics, traces, and logs: exporters and OTel Collector agents run as Kubernetes DaemonSets and feed a Collector gateway and VictoriaMetrics on a dedicated node.</li>
+                  <li>Configured the gateway to export telemetry both to local storage and to GCP Pub/Sub for downstream data processing.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-robot"></i> Conformance Testing</h5>
+                <ul>
+                  <li>Own conformance testing, test automation, and result visualization for the LLM inference stack.</li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-details">
-            <div class="detail-block">
-              <h4 class="block-title"><i class="fa-solid fa-microchip"></i> HW/SW Integration Test Automation &amp; Data Pipelines</h4>
-              <ul>
-                <li>Developed integration-test automation pipelines and a unified web UI to drive and control variable workloads (iperf, perftest, fio, etc.) across bare-metal environments.</li>
-                <li>Automated the full deployment and validation flow (CD) from build-artifact detection to nightly regression testing for new hardware and software integrations using Git workflow, JFrog Artifactory, and Apache Airflow.</li>
-                <li>Built a telemetry parsing pipeline that aggregates large-scale performance testing results into columnar storage (Parquet/DuckDB) for version-to-version regression analysis, with automated Grafana and Slack reporting.</li>
-              </ul>
+          <!-- Sub-Experience: Test Automation & Infrastructure -->
+          <div class="sub-timeline">
+            <div class="sub-timeline-header">
+              <h4 class="sub-company">Test Automation &amp; Infrastructure</h4>
+              <span class="sub-date">2025.06 &ndash; Present</span>
             </div>
-            
-            <div class="detail-block">
-              <h4 class="block-title"><i class="fa-solid fa-server"></i> Bare-Metal Resource Management &amp; Observability</h4>
-              <ul>
-                <li>Designed and implemented a node resource ownership management system mapping hardware nodes as database rows with row-level locking to prevent resource contention across concurrent tests.</li>
-                <li>Automated bare-metal OS provisioning for dozens of heterogeneous servers using Canonical MAAS (PXE boot) and Cloud-init, ensuring configuration consistency and minimizing manual overhead.</li>
-                <li>Built a hardware-monitoring collection environment for network switches and bare-metal nodes (BMC) using SNMP and Redfish API protocols.</li>
-                <li>Developed a high-performance custom Prometheus Exporter in Go to collect hardware register counters directly from the company's proprietary RNIC.</li>
-              </ul>
+
+            <div class="tech-stack-container">
+              <span class="tech-stack-label">Tech Stack:</span>
+              <div class="tech-tags">
+                <span>Python</span><span>CI/CD</span><span>RDBMS</span>
+              </div>
+            </div>
+
+            <div class="timeline-details">
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-microchip"></i> HW/SW Integration Test Automation</h5>
+                <ul>
+                  <li>Developed integration-test automation pipelines and a web UI to control variable workloads (iperf, perftest, fio, etc.).</li>
+                  <li>Automated the full flow from build-artifact detection to deployment (CD) and nightly regression testing for new hardware/software.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-server"></i> Bare-Metal Resource Management</h5>
+                <ul>
+                  <li>Built convergent bare-metal infrastructure with PXE-boot OS provisioning and an Ansible-like, Git-managed desired-state configuration tool.</li>
+                  <li>Kept test automation current with the latest RHEL- and Debian-family releases (Rocky 9/10, Ubuntu 22.04/24.04), including kernel pinning and DKMS-based device-driver installation.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h5 class="block-subtitle"><i class="fa-solid fa-key"></i> Platform Backend</h5>
+                <ul>
+                  <li>Built an in-house identity service for the platform (JWT/JWKS, Google and LDAP sign-in, personal access tokens, RBAC).</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -166,7 +203,7 @@
             <div class="tech-stack-container">
               <span class="tech-stack-label">Tech Stack:</span>
               <div class="tech-tags">
-                <span>C</span><span>Java</span><span>POSIX System Calls</span><span>Spring MVC</span><span>Netty</span><span>RDBMS (Oracle, Tibero)</span>
+                <span>C</span><span>Java</span><span>RDBMS (Oracle, Tibero)</span>
               </div>
             </div>
 
@@ -174,7 +211,7 @@
               <div class="detail-block">
                 <h5 class="block-subtitle"><i class="fa-solid fa-gears"></i> Engine Framework &amp; Optimization</h5>
                 <ul>
-                  <li>Maintained and optimized the C-based synchronization engine core, including custom memory allocators and POSIX epoll I/O multiplexing, and introduced an asynchronous non-blocking socket layer.</li>
+                  <li>Maintained and improved the C-based synchronization engine core and introduced a non-blocking network layer.</li>
                   <li>Resolved persistent file descriptor leaks by developing a TCP-timeout-based cleanup mechanism that cleans up abandoned epoll registrations during unexpected network disconnections (e.g., cable pull).</li>
                   <li>Optimized local file I/O operations and transaction processing throughput by implementing batch updates for synchronization metadata.</li>
                   <li>Designed and built a high-performance multithreaded architecture that applies serial database transactions from WAL files to the target database in parallel, significantly increasing replication speed.</li>
@@ -185,7 +222,7 @@
               <div class="detail-block">
                 <h5 class="block-subtitle"><i class="fa-solid fa-network-wired"></i> Backend &amp; System Integration</h5>
                 <ul>
-                  <li>Developed highly concurrent custom TCP communication servers built on Java, Spring, and Netty.</li>
+                  <li>Developed highly concurrent custom TCP communication servers in Java.</li>
                   <li>Implemented cross-database consistency checking and an ETL pipeline module for initial high-speed bulk data loading.</li>
                   <li>Built a real-time cluster status and latency monitoring subsystem for the synchronization engine deployment.</li>
                 </ul>
@@ -215,7 +252,7 @@
             <div class="tech-stack-container">
               <span class="tech-stack-label">Tech Stack:</span>
               <div class="tech-tags">
-                <span>C++</span><span>C</span><span>WKB (Well-Known Binary)</span><span>Custom Memory Allocator</span>
+                <span>C++</span><span>C</span>
               </div>
             </div>
 
@@ -223,7 +260,7 @@
               <div class="detail-block">
                 <h5 class="block-subtitle"><i class="fa-solid fa-map-location-dot"></i> GIS Library for RDBMS (Tibero)</h5>
                 <ul>
-                  <li>Developed a Well-Known Binary (WKB) spatial data processing framework based on C++ STL and a custom memory allocator.</li>
+                  <li>Developed a WKB spatial data-processing library in C++.</li>
                   <li>Developed Oracle Spatial/PostGIS-compatible ST_ spatial SQL functions.</li>
                 </ul>
               </div>
@@ -324,7 +361,6 @@
               <li>Python</li>
               <li>Java</li>
               <li>Bash Shell scripting</li>
-              <li>Go (Golang)</li>
             </ul>
           </div>
 
@@ -334,7 +370,6 @@
               <li>High-Performance Systems Programming</li>
               <li>Concurrent &amp; Multithreaded Programming</li>
               <li>Network Socket Programming (epoll, TCP)</li>
-              <li>Custom Memory Management &amp; Allocators</li>
               <li>Linux System Internals &amp; APIs</li>
             </ul>
           </div>
@@ -353,10 +388,10 @@
             <h3 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> DevOps &amp; Infrastructure</h3>
             <ul class="skill-list">
               <li>Docker &amp; Containerization</li>
-              <li>CI/CD &amp; Pipeline Automation (Airflow)</li>
-              <li>Monitoring &amp; Observability (Prometheus, Grafana)</li>
-              <li>Bare-Metal Provisioning (MAAS, Cloud-init)</li>
-              <li>Hardware Monitoring &amp; Telemetry</li>
+              <li>CI/CD &amp; Pipeline Automation</li>
+              <li>Kubernetes</li>
+              <li>Observability (OpenTelemetry, Prometheus)</li>
+              <li>Bare-Metal Provisioning &amp; Config Convergence</li>
             </ul>
           </div>
         </div>
@@ -377,107 +412,8 @@
         </div>
       </section>
 
-      <!-- Section: Projects (Deep Dives) -->
-      <section id="projects" class="content-section">
-        <h2 class="section-title">Project Deep-Dives</h2>
-        <p class="section-subtitle">
-          Click on any card to read the comprehensive technical documentation and architecture breakdowns loaded directly from the repository.
-        </p>
-
-        <div class="projects-grid">
-          
-          <!-- Project 2 -->
-          <div class="project-card card" data-project="02-engine-core">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Sync Engine Core</h3>
-              <span class="project-tag">C / POSIX / Epoll</span>
-            </div>
-            <p class="project-card-summary">Maintenance and optimization of the C-based Change Data Capture (CDC) real-time sync engine core and epoll networking layer.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card card" data-project="03-parallel-apply">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Parallel Transaction Applier</h3>
-              <span class="project-tag">C / Multi-threading</span>
-            </div>
-            <p class="project-card-summary">Design and implementation of a multithreaded engine to safely apply WAL transactions to target databases in parallel.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card card" data-project="04-ha-failover">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Scenario HA Failover</h3>
-              <span class="project-tag">HA / TBCM / Cluster</span>
-            </div>
-            <p class="project-card-summary">Designed, validated, and deployed scenario-based recovery structures on top of existing cluster high-availability frameworks.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="project-card card" data-project="05-backend-api">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Netty &amp; Spring Gateway</h3>
-              <span class="project-tag">Java / Netty / Spring</span>
-            </div>
-            <p class="project-card-summary">Developed concurrent communication modules and bulk initial ETL data loading layers for real-time CDC synchronization.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="project-card card" data-project="06-test-platform">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Automated Validation Platform</h3>
-              <span class="project-tag">Airflow / Django / React</span>
-            </div>
-            <p class="project-card-summary">Built a high-availability integration and performance verification system driving airlocked server clusters for DPU RNIC testing.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-          <!-- Project 7 -->
-          <div class="project-card card" data-project="07-baremetal">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Bare-Metal Orchestrator</h3>
-              <span class="project-tag">MAAS / SNMP / Redfish</span>
-            </div>
-            <p class="project-card-summary">Automated provisioning and performance telemetry collection via BMC, switches, and custom-built Go exporters.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-          <!-- Project 8 -->
-          <div class="project-card card" data-project="08-team-lead">
-            <div class="project-card-header">
-              <h3 class="project-card-title">Engine Team Leadership</h3>
-              <span class="project-tag">Management / Roadmap</span>
-            </div>
-            <p class="project-card-summary">Led the Tibero ProSync CDC core development group, establishing development targets, managing tasks, and mentoring members.</p>
-            <span class="view-more">Read Deep Dive <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-
-        </div>
-      </section>
-
     </main>
   </div>
-
-  <!-- SLIDE-OUT DRAWER OVERLAY FOR PROJECT DEEP-DIVES -->
-  <div id="drawer-overlay" class="drawer-overlay"></div>
-  <aside id="project-drawer" class="project-drawer">
-    <div class="drawer-header">
-      <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close drawer">
-        <i class="fa-solid fa-xmark"></i> Close
-      </button>
-      <span class="drawer-header-hint">Project Technical Documentation</span>
-    </div>
-    <div id="drawer-content" class="drawer-content prose">
-      <!-- Dynamic Markdown Content will be injected here -->
-      <div class="loading-spinner">
-        <i class="fa-solid fa-circle-notch fa-spin"></i> Loading deep-dive documentation...
-      </div>
-    </div>
-  </aside>
 
   <!-- Script -->
   <script src="app.js"></script>
