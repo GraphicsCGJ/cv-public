@@ -42,9 +42,7 @@
 	\textit{\small Tech Stack: C, Java, RDBMS}\par
 	\quad $\cdot$ \textbf{Engine Framework \& Optimization}\par
 	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Maintained and improved the C-based sync engine core and introduced a non-blocking network layer.\par
-	\hangindent=1cm \hangafter=0 %
-	$\cdot$ Fixed leaked epoll registrations on abnormal disconnects (e.g., cable pull) via TCP-timeout-based cleanup, improving long-running stability.\par
+	$\cdot$ Maintained and improved the C-based sync engine core and introduced a non-blocking network layer based on epoll and TCP timeouts.\par
 	\hangindent=1cm \hangafter=0 %
 	$\cdot$ Optimized file I/O and large-transaction throughput by introducing batch updates for transaction data.\par
 	\hangindent=1cm \hangafter=0 %

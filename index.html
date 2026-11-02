@@ -211,8 +211,7 @@
               <div class="detail-block">
                 <h5 class="block-subtitle"><i class="fa-solid fa-gears"></i> Engine Framework &amp; Optimization</h5>
                 <ul>
-                  <li>Maintained and improved the C-based synchronization engine core and introduced a non-blocking network layer.</li>
-                  <li>Resolved persistent file descriptor leaks by developing a TCP-timeout-based cleanup mechanism that cleans up abandoned epoll registrations during unexpected network disconnections (e.g., cable pull).</li>
+                  <li>Maintained and improved the C-based synchronization engine core and introduced a non-blocking network layer based on epoll and TCP timeouts.</li>
                   <li>Optimized local file I/O operations and transaction processing throughput by implementing batch updates for synchronization metadata.</li>
                   <li>Designed and built a high-performance multithreaded architecture that applies serial database transactions from WAL files to the target database in parallel, significantly increasing replication speed.</li>
                   <li>Architected, verified, and successfully deployed a scenario-based failover framework for the sync engine on top of the cluster High-Availability (TBCM) architecture, passing client production acceptance tests.</li>
